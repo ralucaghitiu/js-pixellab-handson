@@ -3,7 +3,7 @@ var elementResult = document.getElementById('result');
 var form = document.querySelector('.surface-form');
 
 form.addEventListener('submit', function (event) {
-  var radius = document.inputRadius.value || 0;
+  var radius = inputRadius.value || 0;
   var result = 0;
 
   result = 4 * Math.PI * Math.pow(radius, 2);
