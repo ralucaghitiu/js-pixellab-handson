@@ -62,7 +62,7 @@ console.warn(
 );
 var liprop01 = document.getElementById('prop01');
 
-prop01 = `${person.firstName}, ${person.pets[0].name}, ${person.pets[1].name}, ${person.pets[2].name} locuiesc toti in aceeasi casa.`;
+var prop01 = `${person.firstName}, ${person.pets[0].name}, ${person.pets[1].name}, ${person.pets[2].name} locuiesc toti in aceeasi casa.`;
 
 liprop01.innerText = prop01;
 
@@ -71,7 +71,7 @@ console.warn(`Calculeaza si afiseaza diferenta de varsta dintre animalul de pe p
 
 var liprop02 = document.getElementById('prop02');
 
-prop02 = person.pets[0].age - person.pets[2].age;
+var prop02 = person.pets[0].age - person.pets[2].age;
 
 liprop02.innerText = prop02;
 
@@ -81,7 +81,7 @@ console.warn(
 
 var liprop03 = document.getElementById('prop03');
 
-prop03 = `Ma numesc ${person.firstName} ${person.lastName}, m-am nascut in ${person.birthYear} si codul meu postal este: ${person.zipCode}.`;
+var prop03 = `Ma numesc ${person.firstName} ${person.lastName}, m-am nascut in ${person.birthYear} si codul meu postal este: ${person.zipCode}.`;
 
 liprop03.innerText = prop03;
 
@@ -95,6 +95,6 @@ var dogAge = 2022 - person.pets[0].age;
 var catAge = 2022 - person.pets[1].age;
 var fishAge = 2022 - person.pets[2].age;
 
-prop04 = `Animalele mele s-au nascut in ${dogAge}, ${catAge}, respectiv ${fishAge}.`;
+var prop04 = `Animalele mele s-au nascut in ${dogAge}, ${catAge}, respectiv ${fishAge}.`;
 
 liprop04.innerText = prop04;
