@@ -111,24 +111,21 @@ console.warn(
   ` Afiseaza fraza: "Intre Dragos si Larry este o diferenta de xx ani. Intre Dragos si Steven... ", doar daca varsta prietenului este impara. `,
 );
 
-var dif = 0;
 var message = ' ';
 for (var i = 0; i < person.friends.length; i++) {
   var friend = person.friends[i];
-  if (friend.age % 2 === 0) {
-    continue;
+  var ageDiff = Math.abs(person.age - friend.age);
+
+  if (friend.age % 2 === 1) {
+    message +=
+      'Intre ' +
+      person.name +
+      ' si ' +
+      friend.name +
+      ' este o diferenta de ' +
+      ageDiff +
+      ' ani.';
   }
-
-  var ageDiff = person.age - friend.age;
-
-  message +=
-    'Intre ' +
-    person.name +
-    ' si ' +
-    friend.name +
-    ' este o diferenta de ' +
-    ageDiff +
-    ' ani. ';
 }
 console.log(message.trim());
 
@@ -185,10 +182,11 @@ console.warn(
   ` Afiseaza diferenta de varsta dintre persoana si prietenii din arrayul friends. `,
 );
 for (var i = 0; i < person.friends.length; i++) {
-  var friends = person.friends[i];
+  var friend = person.friends[i];
   var ageDiff = Math.abs(person.age - friend.age);
+
+  console.log(ageDiff);
 }
-console.log(ageDiff);
 
 console.warn(
   ` Afiseaza fraza: "Intre Dragos si Larry este o diferenta de xx ani. Intre Dragos si Steven... ". Repeta pentru tot arrayul friends.`,

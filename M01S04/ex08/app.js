@@ -61,19 +61,19 @@ var i = 1;
 // Folosind metoda prompt de doua ori cere utilizatorului un numar si o limita superioara apoi afiseaza toti multiplii de numar intre 5 si limita superioara introduse.
 var i = 0;
 var currentNumber = 5;
-var WarningMessage = 'Nu ai introdus un numar';
+var warningMessage = 'Nu ai introdus un numar';
 var number = prompt('Introdu un numar');
 var maxlimit = prompt('Care este limita superioara?');
 
 if (number === null || number.trim().length === 0) {
-  console.warn(WarningMessage);
+  console.warn(warningMessage);
   number = currentNumber;
 } else {
   number = Number(number);
 }
 
 if (isNaN(number) === true) {
-  console.warn(WarningMessage);
+  console.warn(warningMessage);
   number = currentNumber;
 }
 while (i <= maxlimit) {

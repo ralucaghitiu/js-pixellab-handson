@@ -78,14 +78,13 @@ console.log(String(ageTotal));
 console.warn(
   ` Folosind forEach, afiseaza suma anilor de nastere ai persoanelor care au varsta impara. `,
 );
-var ageTotal = 0;
+var yearsTotal = 0;
 person.friends.forEach(function (friend) {
   if (friend.age % 2 !== 0) {
-    ageTotal += friend.age;
-    ageTotal.toString();
+    yearsTotal += 2022 - friend.age;
   }
 });
-console.log(ageTotal);
+console.log(yearsTotal.toString());
 
 console.warn(
   ` Afiseaza diferenta de varsta dintre persoana si prietenii din arrayul friends daca aceasta este mai mare sau egala cu 2 ani.`,
