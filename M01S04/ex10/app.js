@@ -180,6 +180,9 @@ person.friends.forEach(function (friend) {
 console.warn(
   ` Folosind metoda reverse si apoi forEach, afiseaza in ordine inversa numele complet al prietenilor din arrayul friends.`,
 );
-person.friends.reverse().forEach(function (friend, i) {
-  console.log(`${person.friends[i].name} ${person.friends[i].surname}`);
-});
+person.friends
+  .slice()
+  .reverse()
+  .forEach(function (friend, i) {
+    console.log(`${person.friends[i].name} ${person.friends[i].surname}`);
+  });
