@@ -81,6 +81,8 @@ while (i <= maxlimit) {
     i++;
     continue;
   }
-  console.log(`Acest numar este multiplu de ${number}`);
+  // console.log(`Acest numar este multiplu de ${number}`);
+  // i++;
+  console.log(i);
   i++;
 }
