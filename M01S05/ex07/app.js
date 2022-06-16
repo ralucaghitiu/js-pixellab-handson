@@ -40,6 +40,5 @@ console.log(`Astazi este ${dateBuilder[3]()}, ${dateBuilder[2]()}.`);
 console.warn(`Afiseaza propozitia: “Data curenta este zi luna an.”.
 `);
 console.log(
-  `Data curenta este ${dateBuilder[3]()} ${dateBuilder[1]()} ${dateBuilder[0]()}.
-`,
+  `Data curenta este ${dateBuilder[2]()} ${dateBuilder[1]()} ${dateBuilder[0]()}.`,
 );
