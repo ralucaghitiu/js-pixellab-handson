@@ -1,3 +1,11 @@
+/**
+ * Folosind exemplul de la exercitiul 2, afiseaza mesajul
+ * intr-un paragraf in loc de consola. Inainte de a adauga
+ * elementul in DOM adauga-i clasa message. https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+ *  Creaza o functie numita showMessage() pe care
+ * sa o chemi de fiecare data cand vrei sa afisezi un paragraf in DOM
+ */
+
 (function () {
   function showMessage(message) {
     const paragraphElement = document.createElement('p');
