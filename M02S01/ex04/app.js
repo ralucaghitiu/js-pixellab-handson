@@ -1,8 +1,21 @@
 class Car {
-  constructor(positionX, positionY, color) {
+  constructor(
+    positionX,
+    positionY,
+    color,
+    wheelColor,
+    hubCapColor,
+    areHazardsOn,
+    areHazardsOff,
+  ) {
     this.positionX = positionX;
     this.positionY = positionY;
     this.color = color;
+
+    this.wheelColor = wheelColor;
+    this.hubCapColor = hubCapColor;
+    this.areHazardsOn = areHazardsOn;
+    this.areHazardsOff = areHazardsOff;
 
     this.frame = document.createElement('div');
     this.frame.classList.add('frame');
@@ -11,15 +24,16 @@ class Car {
 
     this.car = document.createElement('div');
     this.car.classList.add('car');
-
     this.frame.append(this.car);
 
     this.carTop = document.createElement('div');
     this.carTop.classList.add('car__top');
+    this.carTop.style.backgroundColor = this.color;
     this.car.append(this.carTop);
 
     this.carBody = document.createElement('div');
     this.carBody.classList.add('car__body');
+    this.carBody.style.backgroundColor = this.color;
     this.car.append(this.carBody);
 
     this.lightBack = document.createElement('div');
@@ -38,7 +52,7 @@ class Car {
     this.wheelFront.append(this.hubCapFront);
 
     this.wheelBack = document.createElement('div');
-    this.wheelBack.classList.add('wheel', 'car__wheel', 'car_wheel--back');
+    this.wheelBack.classList.add('wheel', 'car__wheel', 'car__wheel--back');
     this.carBody.append(this.wheelBack);
     this.hubCapBack = document.createElement('div');
     this.hubCapBack.classList.add('wheel__cap');
@@ -49,12 +63,26 @@ class Car {
     this.positionX = positionX;
     this.positionY = positionY;
 
-    this.frame.style.left = `${positionX}px`;
-    this.frame.style.top = `${positionY}px`;
+    this.frame.style.left = `${this.positionX}px`;
+    this.frame.style.top = `${this.positionY}px`;
   }
 
   engageBreak() {
     this.lightBack.style.backgroundColor = 'red';
+  }
+
+  changeWheelColor(wheelColor) {
+    this.wheelColor = wheelColor;
+
+    this.wheelFront.style.backgroundColor = this.wheelsColor;
+    this.wheelBack.style.backgroundColor = this.wheelsColor;
+  }
+
+  changeHubCapColor(hubCapColor) {
+    this.hubCapColor = hubCapColor;
+
+    this.hubCapFront.style.backgroundColor = this.hubCapColor;
+    this.hubCapBack.style.backgroundColor = this.hubCapColor;
   }
 
   disengageBreak() {
@@ -69,3 +97,8 @@ class Car {
 const car01 = new Car(140, 140, 'teal');
 car01.render();
 car01.moveTo(500, 600);
+
+const car02 = new Car(100, 200, red);
+car02.render();
+car02.changeWheelColor('magenta');
+car02.changeHubCapColor('green');

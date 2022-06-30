@@ -30,6 +30,39 @@ $('<span>', {
   text: 'ParolaMea',
 }).appendTo($p2);
 
+const $container = $('.container');
 $('<h2>', {
   text: 'Mesaje',
-}).prependTo($('.container'));
+}).prependTo($container);
+
+const $navigation = $('<div>', {
+  class: 'navigation',
+});
+
+$container.after($navigation);
+
+const $firstLink = $('<a>', {
+  text: 'First Link',
+  class: 'nav-link',
+  title: 'First Link',
+  href: 'https://google.com',
+}).appendTo($navigation);
+
+$firstLink.before(
+  $('<h2>', {
+    text: 'Navigatie',
+  }),
+);
+
+$firstLink.prepend(
+  $('<sup>', {
+    text: 1,
+    style: 'text-decoration: none',
+  }),
+);
+
+$container.before(
+  $('<h1>', {
+    text: 'jQuery is old',
+  }),
+);

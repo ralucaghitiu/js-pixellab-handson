@@ -19,3 +19,11 @@ function paragraphLog(message) {
 console.log('Apar in document');
 
 console.domLog = paragraphLog;
+
+function viewMessage() {
+  for (let i = 0; i < arguments.length; i++) {
+    console.log(arguments[i]);
+  }
+}
+
+viewMessage('numar', 'nedeterminat', 'de', 'parametrii');
