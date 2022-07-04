@@ -1,21 +1,8 @@
 class Car {
-  constructor(
-    positionX,
-    positionY,
-    color,
-    wheelColor,
-    hubCapColor,
-    areHazardsOn,
-    areHazardsOff,
-  ) {
+  constructor(positionX, positionY, color) {
     this.positionX = positionX;
     this.positionY = positionY;
     this.color = color;
-
-    this.wheelColor = wheelColor;
-    this.hubCapColor = hubCapColor;
-    this.areHazardsOn = areHazardsOn;
-    this.areHazardsOff = areHazardsOff;
 
     this.frame = document.createElement('div');
     this.frame.classList.add('frame');
@@ -71,13 +58,37 @@ class Car {
     this.lightBack.style.backgroundColor = 'red';
   }
 
-  toggleHazards() {}
+  areHazardsOn = false;
+  turnLightsOn() {
+    this.lightBack.style.backgreoundColor = 'red';
+    this.lightFront.style.backgroundColor = 'red';
+  }
+
+  turnLightsOff() {
+    this.lightBack.style.backgreoundColor = 'white';
+    this.lightFront.style.backgroundColor = 'white';
+  }
+
+  toggleHazards() {
+    this.interval = setInterval(() => {
+      this.turnLightsOn();
+
+      setTimeout(() => {
+        this.turnLightsOff();
+      }, 2000);
+    }, 2000);
+    this.areHazardsOn = true;
+  }
+
+  HazardsOff() {
+    clearInterval(this.interval);
+  }
 
   changeWheelColor(wheelColor) {
     this.wheelColor = wheelColor;
 
-    this.wheelFront.style.backgroundColor = this.wheelsColor;
-    this.wheelBack.style.backgroundColor = this.wheelsColor;
+    this.wheelFront.style.backgroundColor = this.wheelColor;
+    this.wheelBack.style.backgroundColor = this.wheelColor;
   }
 
   changeHubCapColor(hubCapColor) {
