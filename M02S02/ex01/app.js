@@ -66,3 +66,16 @@ $container.before(
     text: 'jQuery is old',
   }),
 );
+
+const $paragraph = $('<p>', {
+  text: 'Documentatia jQuery poate fi gasita ',
+}).append(
+  $('<a>', {
+    text: ' aici.',
+    href: 'https://jquery.com',
+    target: '_blank',
+    title: 'documentatiejQuery',
+  }),
+);
+
+$body.append($paragraph);

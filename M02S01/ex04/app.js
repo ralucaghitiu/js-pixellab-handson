@@ -71,6 +71,8 @@ class Car {
     this.lightBack.style.backgroundColor = 'red';
   }
 
+  toggleHazards() {}
+
   changeWheelColor(wheelColor) {
     this.wheelColor = wheelColor;
 
