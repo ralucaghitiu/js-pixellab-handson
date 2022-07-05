@@ -58,6 +58,10 @@ class Car {
     this.lightBack.style.backgroundColor = 'red';
   }
 
+  disengageBreak() {
+    this.lightBack.style.backgroundColor = 'white';
+  }
+
   areHazardsOn = false;
   turnLightsOn() {
     this.lightBack.style.backgreoundColor = 'red';
@@ -76,7 +80,7 @@ class Car {
       setTimeout(() => {
         this.turnLightsOff();
       }, 2000);
-    }, 2000);
+    }, 3000);
     this.areHazardsOn = true;
   }
 
@@ -98,10 +102,6 @@ class Car {
     this.hubCapBack.style.backgroundColor = this.hubCapColor;
   }
 
-  disengageBreak() {
-    this.lightBack.style.backgroundColor = 'white';
-  }
-
   render() {
     document.body.append(this.frame);
   }
@@ -111,7 +111,7 @@ const car01 = new Car(140, 140, 'teal');
 car01.render();
 car01.moveTo(500, 600);
 
-const car02 = new Car(100, 200, red);
+const car02 = new Car(100, 200, 'blue');
 car02.render();
 car02.changeWheelColor('magenta');
 car02.changeHubCapColor('green');
