@@ -75,6 +75,55 @@ $(function () {
         return $ul;
       }
     });
+  // tema
+  $('.friend-fieldset')
+    .find('button[type="button"]')
+    .on('click', function () {
+      const $friendButton = $(this);
+
+      const $inputs = $friendButton
+        .parents('.friend-fielset')
+        .find('input[name^="friend-"]:not([name^="friend-data"])');
+
+      const friendValues = [];
+      $inputs.each(function () {
+        const $input = $(this);
+
+        friendValues.push($input.val());
+      });
+
+      $friendButton.after(renderFriendUl(friendValues));
+      $inputs.val('');
+
+      function renderFriendUl(friendValues) {
+        const friendsClassName = 'renderFriendUl';
+        let $ul = $(`.${friendsClassName}`);
+
+        if ($ul.length <= 0) {
+          $ul = $('<ul>', {
+            class: friendsClassName,
+          });
+        }
+        const friendData = friendValues.join(',');
+
+        const $friendLi = $('<li>')
+          .append(
+            $('<span>', {
+              text: friendData,
+            }),
+          )
+          .append(
+            $('<input>', {
+              value: friendData,
+              type: 'text',
+              name: `friend-data-${friendData}`,
+            }),
+          );
+
+        $friendLi.appendTo($ul);
+        return $ul;
+      }
+    });
 
   // hoisting
   // doar pentru function
@@ -103,7 +152,8 @@ $(function () {
       .empty()
       .append(renderPerson(formData))
       .append(renderSkills(formData))
-      .append(renderPets(formData));
+      .append(renderPets(formData))
+      .append(renderFriends(formData));
 
     return $container;
   }
@@ -164,6 +214,33 @@ $(function () {
     return $p;
   }
 
+  function renderFriends(formData) {
+    const iterator = formData.entries();
+    const objectData = Object.fromEntries(iterator);
+
+    const keys = Object.keys(objectData);
+    const friendsArray = [];
+
+    $.each(keys, function (value) {
+      const keyName = keys[value];
+      if (!keyName.startsWith('friend-data')) return;
+
+      friendsArray.push(objectData[keyName]);
+    });
+
+    if (friendsArray.length <= 0) return '';
+    const $ul = $('<ul>');
+
+    for (let i = 0; i < friendsArray.length; i++) {
+      $ul.append(
+        $('<li>', {
+          text: `Friends: ${friendsArray}`,
+        }),
+      );
+    }
+    return $ul;
+  }
+
   function renderSkillControls() {
     function renderSkillsUl(skill) {
       const skillsClassName = 'renderSkillsUl';
@@ -207,13 +284,17 @@ $(function () {
           $cancelButton.siblings('.editSkillButton').show();
         })
         .on('click', '.saveSkillButton', function () {
-          const $saveButton = $(this);
+          const $saveButton = $(this).hide();
 
           $saveButton
             .siblings('.skillDisplay')
+            .attr('type', 'hidden')
             .text($saveButton.siblings('input[name^="skill-"]').val());
-
           // insert code from homework here
+          $saveButton.siblings('.saveSkillButton').hide();
+          $saveButton.siblings('.deleteSkillButton').show();
+          $saveButton.siblings('.editSkillButton').show();
+          $saveButton.siblings('.cancelSkilllButton').hide();
         });
 
       $('<li>')
