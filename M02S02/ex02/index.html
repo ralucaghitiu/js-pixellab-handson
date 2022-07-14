@@ -89,41 +89,51 @@
     </fieldset>
 
     <br><br>
-    <fieldset class="Friend-fieldset">
-      <legend>Prieteni</legend>
+    <input
+      type="checkbox"
+      name="has-friends"
+      id="has-friends"
+    >
+    <label for="has-friends">Are prieteni</label>
+    <fieldset
+      style="display:none"
+      class="friend-fieldset"
+    >
 
-      <label for="friend-name">Nume prieten</label>
+      <legend>Prieteni</legend>
+      <label for="friend-name">Nume prieten:</label>
       <input
         type="text"
         name="friend-name"
         id="friend-name"
       >
+
       <br><br>
-      <label for="friend-surname">Prenume prieten</label>
+
+
+      <label for="friend-name">Prenume prieten:</label>
       <input
         type="text"
-        name="friend-suname"
+        name="friend-surname"
         id="friend-surname"
       >
 
       <br><br>
-      <label for="friend-age">Varsta prieten</label>
+
+      <label for="friend-age">Varsta prieten:</label>
       <input
-        type="number"
+        type="text"
         name="friend-age"
         id="friend-age"
       >
-
       <br><br>
+
       <button
         type="button"
         title="Adauga prieten"
       >Adauga prieten</button>
     </fieldset>
-
   </form>
 </body>
-
-
 
 </html>

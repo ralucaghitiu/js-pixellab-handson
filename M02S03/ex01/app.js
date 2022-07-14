@@ -7,13 +7,13 @@ class Car {
   }
 
   accelerate() {
-    this.speed++;
+    this.speed += accelerateValue;
 
     return this;
   }
 
   decelerate() {
-    this.speed--;
+    this.speed -= decelerateValue;
 
     return this;
   }
