@@ -3,7 +3,7 @@ let oldWidth = window.innerWidth;
 showMessage(oldWidth, 'message');
 
 // recipe
-const debouncedResize = debounce(1000, function () {
+const debouncedResize = debounce(300, function () {
   const newWidth = this.innerWidth;
   showMessage(this.innerWidth.toString());
 
