@@ -1,8 +1,9 @@
 // studiu:
 const buttons = document.querySelectorAll('button');
-const box = document.querySelector('.box');
+const boxes = document.querySelectorAll('.box');
 const colorInput = document.querySelector('.dynamicColorForm input');
 const removeButton = document.querySelector('.thirdButton');
+const radioButtons = document.querySelectorAll('.radioButton');
 
 // array-like object
 buttons.forEach(function (button) {
@@ -20,7 +21,18 @@ document.addEventListener('click', function (event) {
   }
 
   if (target.nodeName === 'BUTTON' && target.type === 'button') {
-    box.style.backgroundColor = target.style.backgroundColor;
+    // box.style.backgroundColor = target.style.backgroundColor;
+    for (const radioButton of radioButtons) {
+      if (radioButton.type === 'radio' && radioButton.checked) {
+        const parent = radioButton.parentElement;
+        parent.style.backgroundColor = target.style.backgroundColor;
+      }
+
+      if (!radioButton.checked) {
+        const parent = radioButton.parentElement;
+        parent.style.backgroundColor = '';
+      }
+    }
   }
 });
 
@@ -28,6 +40,7 @@ colorInput.addEventListener('change', function () {
   const dynamicButton = this.previousElementSibling;
 
   dynamicButton.style.backgroundColor = this.value;
+  console.log(dynamicButton);
 });
 
 colorInput.parentElement.addEventListener('submit', function (event) {
@@ -39,5 +52,7 @@ colorInput.parentElement.addEventListener('submit', function (event) {
 });
 
 removeButton.addEventListener('click', function () {
-  box.removeAttribute('style');
+  boxes.forEach(function (box) {
+    box.removeAttribute('style');
+  });
 });
